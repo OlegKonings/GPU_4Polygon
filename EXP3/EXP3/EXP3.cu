@@ -417,7 +417,7 @@ int main(){
 	int4 *GPU_combo;
 	err=cudaMalloc((void**)&GPU_best,num_blx*sizeof(int));
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
-	err=cudaMalloc((void**)&GPU_combo,num_blx*sizeof(int3));
+	err=cudaMalloc((void**)&GPU_combo,num_blx*sizeof(int4));
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 
 	wTimerRes = 0;
