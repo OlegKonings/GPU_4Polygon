@@ -8,7 +8,6 @@ Similar to the CUDA_brute_triangle project, but this implementation brute-force 
 
 Not quite as fast as the 3 point version, but still kills an i-7 3770k 3.9Ghz CPU (full -O2 optimizations).
 
-分享你的知识和我一样！
 
 Optimal Polygon Running Time comparison:
 ---
