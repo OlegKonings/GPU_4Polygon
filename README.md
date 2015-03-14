@@ -30,10 +30,21 @@ Optimal Polygon Running Time comparison:
 
 ___
 
-человечество может только прогрессировать, когда люди работают вместе.
+
 
 Still think this can be improved, but in general this technique works and will run even faster on a GTX780ti, so will post those results soon.
 
 Can handle up to 2000 points, but any more will overflow __constant__ memory. 
 
 Linux users need to change the long long(a) casts to (long long)a . Does need a GPU will compute capability >3.0.
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60172288-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
