@@ -28,13 +28,13 @@ typedef long long ll;
 #define _HTD cudaMemcpyHostToDevice
 
 #define THREADS 256
-#define NUM_ELEMENTS 100
+#define NUM_ELEMENTS 200
 #define MEGA (1LL<<29)
 
 const int max_x=NUM_ELEMENTS+1;
 //const int max_y=NUM_ELEMENTS;
 
-const int blockSize0=2048;
+const int blockSize0=8192;
 
 struct four_p{
 	int4 a;
@@ -384,7 +384,7 @@ int main(){
 	
 
 
-	cudaError_t err=cudaDeviceReset();
+	cudaError_t err=cudaFree(0);
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 	cout<<"\nRunning CPU implementation..\n";
     UINT wTimerRes = 0;
@@ -435,11 +435,11 @@ int main(){
 	}else{
 		gpu_optimal_four<blockSize0*16><<<num_blx,THREADS>>>(GPU_combo,GPU_best,num_points);
 	}
-	err = cudaThreadSynchronize();
+	err = cudaDeviceSynchronize();
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 
 	four_last_step<<<1,THREADS>>>(GPU_combo,GPU_best,num_points,rem_start,range,num_blx);
-	err = cudaThreadSynchronize();
+	err = cudaDeviceSynchronize();
 	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
 
 	err=cudaMemcpy(&GPU_ans,GPU_best,sizeof(int),_DTH);
@@ -463,14 +463,17 @@ int main(){
 	cout<<"\nNote: If there is more than one polygon which has the same optimal value, the GPU version will return a valid polygon, but not necessarily the first encountered.\n";
 	cout<<"\nAlso point order may be different in GPU and CPU versions, but order does not matter as they are just points of optimal polygon.\n";
 	if(GPU_ans==CPU_ans.num){
-		cout<<"\nSuccess!. GPU value matches CPU results!. GPU was "<<double(CPU_time)/double(GPU_time)<<" faster that 3.9 ghz CPU.\n";
+		cout<<"\nSuccess!. GPU value matches CPU results!. GPU was "<<double(CPU_time)/double(GPU_time)<<" faster than serial CPU implementation.\n";
 	}else{
 		cout<<"\nError in calculation!\n";
 	}
 
+	err=cudaDeviceReset();
+	if(err!=cudaSuccess){printf("%s in %s at line %d\n",cudaGetErrorString(err),__FILE__,__LINE__);}
+
 
 	free(CPU_Arr);
-	//cin>>ch;
+
 	return 0;
 }
 
