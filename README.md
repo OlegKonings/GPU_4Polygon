@@ -22,7 +22,7 @@ Optimal Polygon Running Time comparison:
 ---
 <table>
 <tr>
-    <th>NumPoints</th><th>NumCombosEvaluated</th><th> 4.5 Ghz CPU time </th><th> 1.01 Ghz GPU time </th><th> CUDA Speedup</th>
+    <th>NumPoints</th><th>NumCombosEvaluated</th><th> 4.5 Ghz CPU time </th><th> 1.8 Ghz GPU time </th><th> CUDA Speedup</th>
 </tr>
     <tr>
     <td> 100</td><td>3,921,225</td><td> 4,4245 ms </td><td> 9ms </td><td> 471.6x</td>
