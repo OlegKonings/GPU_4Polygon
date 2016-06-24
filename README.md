@@ -9,9 +9,13 @@ Similar to the CUDA_brute_triangle project, but this implementation brute-force 
 Not quite as fast as the 3 point version, but much faster than a serial implementation. If you want an estimate of a multi-core implementation you can divide the CPU time by the number of cores (not really that simple in real life). Even then much much faster than a multi-core implementation, and this performance despite the fact there is a great deal of 64-bit integer operations which are much slower than 32-bit operations on consumer GPUs.
 
 CPU used= Intel i7 4820k 4.5 GHZ
+
 GPU used= NVIDIA GTX 1080 1.8 Ghz
+
 CUDA 8.0 RC
+
 Windows 7 x64
+
 
 
 Optimal Polygon Running Time comparison:
