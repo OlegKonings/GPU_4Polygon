@@ -16,6 +16,8 @@ CUDA 8.0 RC
 
 Windows 7 x64
 
+compile  with --use_fast_math flag for better performance
+
 
 
 Optimal Polygon Running Time comparison:
