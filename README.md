@@ -6,23 +6,28 @@ GPU_4Polygon
 
 Similar to the CUDA_brute_triangle project, but this implementation brute-force examines all N choose 4 2-D points and finds which polygon(s) contain the greatest number of points inside.
 
-Not quite as fast as the 3 point version, but still kills an i-7 3770k 3.9Ghz CPU (full -O2 optimizations).
+Not quite as fast as the 3 point version, but much faster than a serial implementation. If you want an estimate of a multi-core implementation you can divide the CPU time by the number of cores (not really that simple in real life). Even then much much faster than a multi-core implementation, and this performance despite the fact there is a great deal of 64-bit integer operations which are much slower than 32-bit operations on consumer GPUs.
+
+CPU used= Intel i7 4820k 4.5 GHZ
+GPU used= NVIDIA GTX 1080 1.8 Ghz
+CUDA 8.0 RC
+Windows 7 x64
 
 
 Optimal Polygon Running Time comparison:
 ---
 <table>
 <tr>
-    <th>NumPoints</th><th>NumCombosEvaluated</th><th> 3.9 Ghz CPU time </th><th> 1.01 Ghz GPU time </th><th> CUDA Speedup</th>
+    <th>NumPoints</th><th>NumCombosEvaluated</th><th> 4.5 Ghz CPU time </th><th> 1.01 Ghz GPU time </th><th> CUDA Speedup</th>
 </tr>
     <tr>
-    <td> 100</td><td>3,921,225</td><td> 5,672 ms </td><td> 16ms </td><td> 354.5x</td>
+    <td> 100</td><td>3,921,225</td><td> 4,4245 ms </td><td> 9ms </td><td> 471.6x</td>
   </tr
   <tr>
-    <td> 200</td><td>64,684,950</td><td> 196,500ms </td><td> 422 ms </td><td> 465.6x </td>
+    <td> 200</td><td>64,684,950</td><td> 148,411ms </td><td> 250 ms </td><td> 593.6x </td>
 </tr>
 <tr>
-    <td> 300</td><td>330,791,175</td><td> 1,589,806 ms</td><td> 3,130 ms </td><td> 507.9x </td>
+    
 </tr>
 
 </table>
