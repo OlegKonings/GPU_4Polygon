@@ -42,7 +42,7 @@ ___
 
 
 
-Still think this can be improved, but in general this technique works and will run even faster on a GTX780ti, so will post those results soon.
+Still think this can be improved, but in general this technique works and will run even faster on a Pascal Titan X, so will post those results soon.
 
 Can handle up to 2000 points, but any more will overflow __constant__ memory. 
 
